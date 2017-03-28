@@ -2,8 +2,8 @@
 //  main.cpp
 //  skipList
 //
-//  Created by Fadi Khan on 3/6/17.
-//  Copyright (c) 2017 __JxtFAdi__. All rights reserved.
+//  Created by breathehacker on 3/6/17.
+//  Copyright (c) 2017 __breathehacker__. All rights reserved.
 //
 
 #include <iostream>
@@ -31,15 +31,12 @@ void add(node *pre, node *curr, double val)//Add NODE after the given node
 {
     if (pre->x>val) {
             cout<<"pre\t"<<pre->x<<endl;
-       // pre=pre->prev;
+    
         cout<<"pre_after\t"<<pre->x<<endl;
 
     }
 
-        /*curr->next=pre->next;
-        curr->prev=pre;
-        pre->next=curr;
-         */
+     
     curr->next=pre->next;
     curr->prev=pre;
     pre->next=curr;
@@ -47,33 +44,6 @@ void add(node *pre, node *curr, double val)//Add NODE after the given node
         curr->up=NULL;
         curr->bottom=NULL;
 
-    /*
-    node *a=pre->prev;
-    if (val<=pre->x) {
-        if (pre->prev) {
-            a->next=curr;
-            curr->prev=a;
-            curr->next=pre;
-            pre->prev=curr;
-        }
-        else {
-            pre->next=curr;
-            curr->prev=pre;
-            curr->next=NULL;
-        }
-
-    }
-    else {
-        pre->next=curr;
-        curr->prev=pre;
-        curr->next=NULL;
-        curr->bottom=NULL;
-        curr->up=NULL;
-    }
-    curr->up=NULL;
-    curr->x=val;
-    curr->bottom=NULL;
-     */
    }
 void display(node *temp)//Display
 {
@@ -114,67 +84,32 @@ node *position(node *temp, double val){
   // cout<<temp->x<<endl;
     int le=1;
         while (temp->bottom) {
-            //cout<<temp->x<<endl;
-            //cout<<temp->x<<endl;
+           
             if (temp->next) {
                 node *a=temp->next;
-                //cout<<"bbbbb------>"<<temp->x<<endl;
+               
                 while (temp->x<=val && temp->next && a->x<=val )
                 {
-                    /*
-                     if (!temp->prev) {
-                     break;
-                     //cout<<temp->x<<endl;
-                     }
-                     else if (temp->prev && temp->x<=val) {
-                     temp=temp->next;
-                     //cout<<temp->x<<endl;
-                     }
-                     if (!temp->prev) {
-                     if (temp->next) {
-                     node *a=temp->next;
-                     if (a->x<=val) {
-                     temp=temp->next;
-                     }
-                     }
-
-                     }
-                     */
-
-                    //   cout<<temp->x<<endl;
+                    
                     a=a->next;
-                   // cout<<temp->x<<"\t";
+                   
                     temp=temp->next;
-                   // cout<<"MOVED :\t"<<temp->x<<endl;
-
+                  
                 }
             }
 
-          //  cout<<"Level    " <<le<<endl;
-            //cout<<temp->x<<endl;
+         
                        temp=temp->bottom;
             ++le;
         }
-  // cout<<"____"<<temp->x<<endl;
-   // cout<<"End------------\t"<<temp->x<<endl;
-    /*
-    if (!temp->prev) {
-        temp=temp->next;
-    }
-    while (temp->next && temp->x<=val){
-        temp=temp->next;
-        // cout<<temp->x<<endl;
-    }
-    //cout<<"end------------------pos\n";
-    cout<<temp->x<<endl;
-     */
+ 
     node *v=temp->next;
     while (temp->next && temp->x<=val && v->x<=val) {
-       // cout<<temp->x<<"\t";
+      
         temp=temp->next;
         v=v->next;
     }
-    //cout<<"\nrt\t"<<temp->x<<endl;
+    
     return temp;
 }
 void insertAFterAbove(node *temp, node *curr){
@@ -227,8 +162,7 @@ node* creaTenode(node *curr){
 }
 void deleteNode(node *temp){
     node *pre=temp->prev;
-    //pre
-    //temp
+   
     pre->next=temp->next;
     temp=temp->next;
     if (temp) {
@@ -269,9 +203,7 @@ int main(int argc, const char * argv[])
               system("cls");
               system("color 4f");
         if (start->next) {
-           // cout<<"\n==================\n";
-           // display(start);
-         //   cout<<"\n==================\n";
+          
         }
         else {
             cout<<"LIST EMPTY!\n\n";
@@ -312,17 +244,17 @@ int main(int argc, const char * argv[])
                         if (!coin) {
                             break;
                         }
-                        //cout<<"_____"<<check<<"\t"<<flip()<<endl;
+                       
                         curr=creaTenode(curr);
                         while (!temp->up) {
-                           // cout<<temp->x<<endl;
+                          
                             temp=temp->prev;
 
 
                         }
-                         // cout<<temp->x<<endl;
+                        
                         temp=temp->up;
-                       // cout<<temp->x<<endl;
+                       
                         insertAFterAbove(temp, curr);
                         ++check;
 
@@ -331,7 +263,7 @@ int main(int argc, const char * argv[])
                 }
                 system("pause");
                 break;
-            //case-----1---ends
+            
             }
             case 2:{
                   system("cls");
@@ -371,14 +303,11 @@ int main(int argc, const char * argv[])
                   system("cls");
                 if (start->next) {
                     cout<<"\n==================\n";
-                    //int dis=1;
+                    
                     temp=start;
-                   // while (temp) {
-                    //cout<<dis<<"---->\t";
+                   
                         display(temp);
-                      //  temp=temp->up;
-                       // ++dis;
-                    //}
+                     
                     cout<<"\n==================\n";
                 }
                 else {
@@ -391,7 +320,7 @@ int main(int argc, const char * argv[])
                 break;
             }//case 3 ___ENDs;;;;;;
             default:{
-                //display(start->up);
+               
                system("color 4f");
                 cerr<<"INCORRRECT CHOICE\n";
                 system("pause");
