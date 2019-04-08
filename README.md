@@ -1,6 +1,6 @@
 # SkipList
 
-### Mini DSA project in CPP
+### Mini DSA SKipList in CPP
 
 ```
 
